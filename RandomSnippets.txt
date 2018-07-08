@@ -1,0 +1,398 @@
+import urllib.request
+
+'''wiki = "https://en.wikipedia.org/wiki/List_of_state_and_union_territory_capitals_in_India"
+
+page = urllib.request.urlopen(wiki)
+print(page)
+from bs4 import BeautifulSoup
+
+soup = BeautifulSoup(page, "html.parser")
+print(soup)
+all = soup.find_all('table')
+print(all)
+right_table=soup.find('table', class_='wikitable sortable plainrowheaders')
+print(right_table)
+
+'''
+
+#==============================================Introduction==============================================#
+
+'''
+passwordFile = open('SecretPasswordFile.txt')
+secretPassword = passwordFile.read()
+print('Enter your password.')
+typedPassword = input()
+if typedPassword == secretPassword:
+	print('Access granted')
+	if typedPassword == '12345':
+		print('That password is one that an idiot puts on their luggage.')
+else:
+    print('Access denied')
+
+'''
+
+
+
+'''
+print('Enter your age')
+age = input()
+print(type(age))
+print('You will be ' +str(int(age)+1)+' in an year')
+'''
+
+
+'''
+import random
+
+for i in range(10):
+	print(random.randint(1, 10)) #includes 1 and 10
+
+print('Random unique numbers are '+str(random.sample(range(0, 10), 5))) # Returns list of unique random numbers
+
+
+seq = [2,6,66,45]
+print('Random number from the seq is ' + str(random.choice(seq))) #Returns a random element from the non-empty sequence seq.
+'''
+
+
+
+'''
+spam = ['apples', 'bananas', 'tofu', 'cats']
+for i in spam:
+	print(i, end=", ")
+print("")
+grid = [['.', '.', '.', '.', '.', '.'],
+['.', 'O', 'O', '.', '.', '.'],
+['O', 'O', 'O', 'O', '.', '.'],
+['O', 'O', 'O', 'O', 'O', '.'],
+['.', 'O', 'O', 'O', 'O', 'O'],
+['O', 'O', 'O', 'O', 'O', '.'],
+['O', 'O', 'O', 'O', '.', '.'],
+['.', 'O', 'O', '.', '.', '.'],
+['.', '.', '.', '.', '.', '.']]
+
+for g in range(len(grid[0])):
+	for i in range(len(grid)):
+		print(grid[i][g],end="")
+	print("")
+
+'''
+
+
+'''
+birthdays = {'Alice': 'Apr 1', 'Bob': 'Dec 12', 'Carol': 'Mar 4'}
+while True:
+	print('Enter a name: (blank to quit)')
+	name = input()
+	if name == '':
+		break
+	if name in birthdays:
+		print(birthdays[name] + ' is the birthday of ' + name)
+	else:
+		print('I do not have birthday information for ' + name)
+		print('When is their birthday?')
+		bday = input()
+		birthdays[name] = bday
+		print('Birthday database updated.')
+'''
+
+
+'''
+def printPicnic(itemsDict, leftWidth, rightWidth):
+	print('PICNIC ITEMS'.center(leftWidth + rightWidth, '-'))
+	for k, v in itemsDict.items():
+		print(k.ljust(leftWidth, '.') + str(v).rjust(rightWidth))
+	
+picnicItems = {'sandwiches': 4, 'apples': 12, 'cups': 4, 'cookies': 8000}
+printPicnic(picnicItems, 12, 5)
+printPicnic(picnicItems, 20, 6)
+'''
+
+
+'''
+spam = 'SpamSpamBaconSpamEggsSpamSpam'
+spam.strip('ampS') # returns BaconSpamEggs, order of the letters in the word does not matter.
+'''
+
+
+'''
+PASSWORDS = {'email': 'F7minlBDDuvMJuxESSKHFhTxFtjVB6',
+'blog': 'VmALvQyKAxiVH5G8v01if1MLZF3sdt',
+'luggage': '12345','fb':'ghgiuyuiuhjbmnbbhlgh'}
+import sys, pyperclip
+if len(sys.argv) < 2: #The command line arguments will be stored in the variable sys.argv
+	print('Usage: python WebScraping.py [account] - copy account password')
+sys.exit()
+account = sys.argv[1] # first command line arg is the account name
+if account in PASSWORDS:
+	pyperclip.copy(PASSWORDS[account])
+	print('Password for ' + account + ' copied to clipboard.')
+else:
+	print('There is no account named ' + account)
+'''
+
+
+
+#import pyperclip, re
+#
+#phoneRegex = re.compile(r'''(
+#(\d{3}|\(\d{3}\))? # area code
+#(\s|-|\.)? # separator
+#(\d{3}) # first 3 digits
+#(\s|-|\.) # separator
+#(\d{4}) # last 4 digits
+#(\s*(ext|x|ext.)\s*(\d{2,5}))? # extension
+#)''', re.VERBOSE)
+#
+## Create email regex.
+#emailRegex = re.compile(r'''(
+#[a-zA-Z0-9._%+-]+ # username
+#@ # @ symbol
+#[a-zA-Z0-9.-]+ # domain name
+#(\.[a-zA-Z]{2,4})# dotsomething
+#)''', re.VERBOSE)
+#
+#
+#text = str(pyperclip.paste())
+#
+#matches = []
+#for groups in phoneRegex.findall(text):
+#	phoneNum = '-'.join([groups[1], groups[3], groups[5]])
+#	if groups[8] != '':
+#		phoneNum += ' x' + groups[8]
+#	matches.append(phoneNum)
+#for groups in emailRegex.findall(text):
+#	matches.append(groups[0])
+#
+#if len(matches) > 0:
+#	pyperclip.copy('\n'.join(matches))
+#	print('Copied to clipboard:')
+#	print('\n'.join(matches))
+#else:
+#	print('No phone numbers or email addresses found.')
+#'''
+
+
+'''
+#Adding # at the beginning of a line
+import pyperclip
+
+text = pyperclip.paste()
+lines = text.split('\n')
+for line in range(len(lines)):
+	lines[line] = '#' + lines[line]
+
+text = '\n'.join(lines)
+pyperclip.copy(text)
+'''
+
+
+'''
+text = open('C://Users//Sahana//Desktop//comment.py')
+t = text.read()
+print(t)
+text.close()
+
+text = open('C://Users//Sahana//Desktop//comment.py', 'w')
+text.write('Hello new world!\n')
+text.close()
+
+text = open('C://Users//Sahana//Desktop//comment.py','a')
+text.write('Hey there, I\'m the new addition')
+text.close()
+
+print("\nReading the entire file....\n")
+
+text = open('C://Users//Sahana//Desktop//comment.py','r')
+content = text.read()
+print(content)
+text.close()
+'''
+
+
+
+'''
+#Quiz - Random question generator
+import random
+# The quiz data. Keys are states and values are their capitals.
+capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'Phoenix',
+'Arkansas': 'Little Rock', 'California': 'Sacramento', 'Colorado': 'Denver',
+'Connecticut': 'Hartford', 'Delaware': 'Dover', 'Florida': 'Tallahassee',
+'Georgia': 'Atlanta', 'Hawaii': 'Honolulu', 'Idaho': 'Boise', 'Illinois':
+'Springfield', 'Indiana': 'Indianapolis', 'Iowa': 'Des Moines', 'Kansas':
+'Topeka', 'Kentucky': 'Frankfort', 'Louisiana': 'Baton Rouge', 'Maine':
+'Augusta', 'Maryland': 'Annapolis', 'Massachusetts': 'Boston', 'Michigan':
+'Lansing', 'Minnesota': 'Saint Paul', 'Mississippi': 'Jackson', 'Missouri':
+'Jefferson City', 'Montana': 'Helena', 'Nebraska': 'Lincoln', 'Nevada':
+'Carson City', 'New Hampshire': 'Concord', 'New Jersey': 'Trenton', 'New Mexico': 'Santa Fe',
+'New York': 'Albany', 'North Carolina': 'Raleigh',
+'North Dakota': 'Bismarck', 'Ohio': 'Columbus', 'Oklahoma': 'Oklahoma City',
+'Oregon': 'Salem', 'Pennsylvania': 'Harrisburg', 'Rhode Island': 'Providence',
+'South Carolina': 'Columbia', 'South Dakota': 'Pierre', 'Tennessee':
+'Nashville', 'Texas': 'Austin', 'Utah': 'Salt Lake City', 'Vermont':
+'Montpelier', 'Virginia': 'Richmond', 'Washington': 'Olympia', 'West Virginia': 'Charleston', 
+'Wisconsin': 'Madison', 'Wyoming': 'Cheyenne'}
+
+#Generate 35 quiz files
+for quizNum in range(5):
+	# Create the quiz and answer key files.
+	quizFile = open('quiz %s.txt' % (quizNum + 1), 'w')
+	answerKeyFile = open('quiz_answers %s.txt' % (quizNum + 1), 'w')
+	# Write out the header for the quiz.
+	quizFile.write('Name:\n\nDate:\n\nPeriod:\n\n')
+	quizFile.write((' ' * 20) + 'State Capitals Quiz (Form %s)' % (quizNum + 1))
+	quizFile.write('\n\n')
+	# Shuffle the order of the states.
+	states = list(capitals.keys())
+	random.shuffle(states)
+
+	for questionNum in range(15):
+		# Get right and wrong answers.
+		correctAnswer = capitals[states[questionNum]]
+		wrongAnswers = list(capitals.values())
+		del wrongAnswers[wrongAnswers.index(correctAnswer)]
+		wrongAnswers = random.sample(wrongAnswers, 3)
+		answerOptions = wrongAnswers + [correctAnswer]
+		random.shuffle(answerOptions)
+
+
+		quizFile.write('%s. What is the capital of %s?\n' % (questionNum + 1,states[questionNum]))
+		for i in range(4):
+			quizFile.write(' %s. %s\n' % ('ABCD'[i], answerOptions[i]))
+			quizFile.write('\n')
+		# Write the answer key to a file.
+		answerKeyFile.write('%s. %s\n' % (questionNum + 1, 'ABCD'[answerOptions.index(correctAnswer)]))
+quizFile.close()
+answerKeyFile.close()	
+'''
+
+
+
+#===========================================================================================================#
+
+
+#import webbrowser, sys
+#webbrowser.open('http://inventwithpython.com/')
+
+
+
+'''
+# Program to download response and write on a text file.
+import requests
+res =  requests.get('http://www.gutenberg.org/cache/epub/120/pg120.txt')
+type(res) # Shows type of response
+print(res.status_code == requests.codes.ok) # res.raise_for_status is advisable.
+print(res.text[0:5000].encode("utf-8")) # Prints 500 characters
+file = open('A novel.txt','wb')
+for chunk in res.iter_content(100000): # Loops through 100000 bytes as a chunk at once.
+	file.write(chunk)
+file.close()
+'''
+
+
+
+'''
+# Program to save and download xkcd comics using Web Scraping.
+
+import requests, os, bs4
+url = 'https://xkcd.com/1524/' # starting url
+os.makedirs('xkcddemo', exist_ok=True) # store comics in ./xkcd
+while not url.endswith('#'):
+	# Download the page.
+	print('Downloading page %s...' % url)
+	res = requests.get(url)
+	res.raise_for_status()
+	soup = bs4.BeautifulSoup(res.text, "html.parser")
+
+	# Find the URL of the comic image.
+	comicElem = soup.select('#comic img')
+	if comicElem == []:	
+		print('Could not find comic image.')
+	else:
+		comicUrl = comicElem[0].get('src').strip("http://")
+		comicUrl = "http://" + comicUrl
+		# Download the image.
+		print('Downloading image %s...' % (comicUrl))
+		res = requests.get(comicUrl)
+		res.raise_for_status()
+	# Save the image to ./xkcd.
+	imageFile = open(os.path.join('xkcd', os.path.basename(comicUrl)), 'wb')
+	for chunk in res.iter_content(100000):
+		imageFile.write(chunk)
+	imageFile.close()
+	# Get the Prev button's url.
+	prevLink = soup.select('a[rel="prev"]')[0]
+	url = 'http://xkcd.com' + prevLink.get('href')
+print('Done.')
+'''
+
+
+'''
+# Program to open first 3 links on google
+import requests, sys, webbrowser, bs4
+#from requests.packages.urllib3.exceptions import InsecureRequestWarning
+#requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+
+print('Googling your query...')
+res = requests.get('https://www.google.co.in/search?q=' + ' '.join(sys.argv[1:]), verify = False)
+res.raise_for_status()
+# Retrieve top search result links.
+soup = bs4.BeautifulSoup(res.text)
+# Open a browser tab for each result.
+topElems = soup.select('.r a')
+numOpen = min(3,len(topElems))
+for i in range(numOpen):
+	webbrowser.open('https://www.google.co.in'+topElems[i].get('href'))
+	print("https://www.google.co.in+"+topElems[i].get('href'))
+'''
+
+
+
+#==================================Selenium - Hold=========================================
+
+'''
+from selenium import webdriver
+driver = webdriver.Firefox(executable_path=r'your\path\geckodriver.exe')
+driver.get('http://inventwithpython.com')
+'''
+
+
+
+'''
+#=====================================Excel Workbooks===============================================
+     A                 B              C
+1 4/5/2015 1:34:02 PM Apples          73
+2 4/5/2015 3:41:23 AM Cherries        85
+3 4/6/2015 12:46:51 PM Pears          14
+4 4/8/2015 8:59:43 AM Oranges         52
+5 4/10/2015 2:07:00 AM Apples        152
+6 4/10/2015 6:10:37 PM Bananas        23
+7 4/10/2015 2:40:46 AM Strawberries   98
+
+import openpyxl
+wb = openpyxl.load_workbook('example.xlsx')
+type(wb)
+
+wb.get_sheet_names() # returns ['Sheet1', 'Sheet2', 'Sheet3']
+type(sheet)
+sheet = wb.get_sheet_by_name('Sheet3') # returns Worksheet "Sheet3"
+sheet.title # returns Sheet3
+anotherSheet = wb.get_active_sheet() # returns Worksheet "Sheet1"
+ 
+sheet = wb.get_sheet_by_name('Sheet1') #sheet['A1'] returns <Cell Sheet1.A1>
+sheet['A1'].value #returns datetime.datetime(2015, 4, 5, 13, 34, 2)
+c = sheet['B1'] # c.value returns 'Apples'
+'Row ' + str(c.row) + ', Column ' + c.column + ' is ' + c.value # returns 'Row 1, Column B is Apples'
+'Cell ' + c.coordinate + ' is ' + c.value # returns 'Cell B1 is Apples'
+sheet['C1'].value #returns 73
+ 
+sheet.get_highest_row() #returns 7
+sheet.get_highest_column() #returns 3
+
+from openpyxl.cell import get_column_letter, column_index_from_string
+get_column_letter(1) #returns A
+get_column_letter(2) # returns B
+
+get_column_letter(sheet.get_highest_column()) # returns C
+column_index_from_string('A') # returns 1
+'''
